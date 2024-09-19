@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="capa.css"> <!-- Link para o CSS externo -->
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form id="registration-form" onsubmit="sendWhatsApp(); return false;">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="frequency">N° Frequência:</label>
+            <input type="text" id="frequency" name="frequency" required>
+            
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            const name = document.getElementById('name').value;
+            const frequency = document.getElementById('frequency').value;
+            const phone = document.getElementById('phone').value;
+            const message = `Nome: ${name}%0ANúmero da Frequência: ${frequency}%0ANúmero de Telefone: ${phone}`;
+            const whatsappLink = `https://api.whatsapp.com/send?text=${message}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</body>
+</html>
